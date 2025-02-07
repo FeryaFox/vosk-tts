@@ -53,9 +53,9 @@ def main():
     """Assume Single Node Multi GPUs Training Only"""
     assert torch.cuda.is_available(), "CPU training is not allowed."
 
-    n_gpus = torch.cuda.device_count()
-    os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '6060'
+    n_gpus = 1
+    os.environ["MASTER_ADDR"] = "127.0.0.1"
+    os.environ["MASTER_PORT"] = "12355"
 
     hps = utils.get_hparams_from_file("db-finetune/config.json")
     hps.model_dir = "db-finetune/out"
